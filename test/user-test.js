@@ -3,6 +3,9 @@ const expect = chai.expect;
 
 const User = require('../src/User');
 
+let data = require('../data/users');
+console.log('user data', data)
+
 describe('User', function() {
 
     it('should be a function', function() {
