@@ -47,10 +47,38 @@ describe('Recipe', function() {
             "instruction": "In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.",
             "number": 1
           }
-        expect(recipe.instructions).to.deep.eq(instructions);
+        expect(recipe.instructions[0]).to.deep.eq(instructions);
     });
-    
 
+    it('should have a name', function() {
+        expect(recipe.name).to.eq("Loaded Chocolate Chip Pudding Cookie Cups")
+    });
+
+    it('should have some tags', function() {
+        expect(recipe.tags).to.deep.eq([
+            "antipasti",
+            "starter",
+            "snack",
+            "appetizer",
+            "antipasto",
+            "hor d'oeuvre"
+          ])
+    });
+
+    it('should calculate the cost of all ingredients', function() {
+        const ingredient = {
+            "id": 20081,
+            "quantity": {
+              "amount": 1.5,
+              "unit": "c"
+            }
+          }
+        
+        recipe.getCostOfIngredients(ingredient);
+        expect(recipe.getCostOfIngredients()).to.equal()
+    });
+
+    
 
     // it('should be able to show instructions for a recipe', function() {
 
