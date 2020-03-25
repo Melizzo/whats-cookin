@@ -1,14 +1,17 @@
 const User = require('./User');
 const Pantry = require('./Pantry');
 
+let data = require('../data/recipes');
+
 class Recipe {
-  constructor(id, image, ingredients, instructions, name, tags) {
-    this.id = id;
-    this.image = image
-    this.ingredients = ingredients;
-    this.instructions = instructions;
-    this.name = name;
-    this.tags = tags;
+  constructor(recipe) {
+    this.id = recipe.id;
+    this.image = recipe.image
+    this.ingredients = recipe.ingredients;
+    this.instructions = recipe.instructions;
+    this.name = recipe.name;
+    this.tags = recipe.tags;
+    this.isFavorited = false
   }
 
   filterRecipeByTag() {
@@ -25,7 +28,10 @@ class Recipe {
   }
 
   getInstructions() {
-    // getting the instructions for the recipe
+    console.log(recipeData.instructions)
+   return recipes.instructions 
+
+  //  foreach recipe, go through and return the instructions.  
   }
 
 
