@@ -51,10 +51,10 @@ let ingredientsData = [
   },
   {
     "id": 2050,
-    "name": "vanilla",
     "estimatedCostInCents": 926
   },
   {
+    "name": "vanilla",
     "id": 1009016,
     "name": "apple cider",
     "estimatedCostInCents": 468
@@ -1234,6 +1234,6 @@ let ingredientsData = [
   }
 ]
 
-module.exports = {
-  ingredientsData
+if (typeof module !== 'undefined') {
 }
+module.exports = ingredientsData;

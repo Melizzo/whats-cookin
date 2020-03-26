@@ -2,13 +2,13 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Recipe = require('../src/Recipe');
-const recipeData = require('../data/recipes');
+const recipeData = require('../data/single-recipe');
 
 describe('Recipe', function() {
     let recipe;
     let recipeInfo;
 
-    beforeEach(function() {
+    beforeEach(() => {
         recipeInfo = recipeData.recipeData[0];
         recipe = new Recipe(recipeInfo);
     });
@@ -36,7 +36,7 @@ describe('Recipe', function() {
             "id": 20081,
             "quantity": {
               "amount": 1.5,
-              "unit": "c"
+              "unit": "tsp"
             }
           }
         expect(recipe.ingredients[0]).to.deep.eq(ingredient);
@@ -74,10 +74,11 @@ describe('Recipe', function() {
             }
           }
         
-        recipe.getCostOfIngredients(ingredient);
-        expect(recipe.getCostOfIngredients()).to.equal()
+        recipe.getCostOfIngredients();
+        expect(recipe.getCostOfIngredients()).to.equal(17776)
     });
 
+    it('should return ')
     
 
     // it('should be able to show instructions for a recipe', function() {

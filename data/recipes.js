@@ -6,7 +6,7 @@ const recipeData = [
         "id": 20081,
         "quantity": {
           "amount": 1.5,
-          "unit": "c"
+          "unit": "tsp"
         }
       },
       {
@@ -5278,6 +5278,7 @@ const recipeData = [
   }
 ];
 
-module.exports = {
-  recipeData
+if (typeof module !== 'undefined') {
 }
+module.exports = recipeData;
+
