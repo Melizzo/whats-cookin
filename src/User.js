@@ -1,11 +1,13 @@
 const Recipe = require('./Recipe');
 const Pantry = require('./Pantry');
 
+// let users = require('../data/users');
+
 class User {
-  constructor(id, name, pantry, favoriteRecipes, recipesToCook) {
-    this.id = id;
-    this.name = name;
-    this.pantry = pantry;
+  constructor(users) {
+    this.id = users.id;
+    this.name = users.name;
+    this.pantry = users.pantry;
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }

@@ -1,7 +1,7 @@
 const User = require('./User');
 const Pantry = require('./Pantry');
 
-let recipeData = require('../data/recipes');
+// let recipeData = require('../data/recipes');
 let ingredientsData = require('../data/ingredients');
 
 class Recipe {
