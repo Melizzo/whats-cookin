@@ -24,17 +24,16 @@ class Recipe {
           totalCost += (singleIngredient.estimatedCostInCents * ingredient.quantity.amount)
         }
       })
-      console.log(totalCost)
     });
     return totalCost
   };
 
   filterRecipeByTag(tagName) {
-    // filter (.includes) out the recipe.tags array and return only the 
+    // filter (.includes) out the recipe.tags array and return only the
     // selected tags
     // return the new selected tags array
     // As a user, I should be able to filter recipes by tag
-    // have a sad path for none meeting selected. 
+    // have a sad path for none meeting selected.
   }
 
   searchRecipeByIngredients() {
@@ -43,10 +42,8 @@ class Recipe {
 
 
   getInstructions() {
-    console.log(recipeData.instructions)
-   return recipes.instructions 
+    return this.instructions
 
-  //  foreach recipe, go through and return the instructions.  
   }
 
 
