@@ -1,17 +1,17 @@
+let recipeData = require('../data/recipes');
+let ingredientsData = require('../data/ingredients');
 const User = require('./User');
 const Pantry = require('./Pantry');
 
-// let recipeData = require('../data/recipes');
-let ingredientsData = require('../data/ingredients');
 
 class Recipe {
-  constructor(recipeData) {
-    this.id = recipeData.id;
-    this.image = recipeData.image
-    this.ingredients = recipeData.ingredients;
-    this.instructions = recipeData.instructions;
-    this.name = recipeData.name;
-    this.tags = recipeData.tags;
+  constructor(id, image, ingredients, instructions, name, tags) {
+    this.id = id;
+    this.image = image
+    this.ingredients = ingredients;
+    this.instructions = instructions;
+    this.name = name;
+    this.tags = tags;
     this.isFavorited = false
   }
 
@@ -20,7 +20,7 @@ class Recipe {
     let totalCost = 0;
     this.ingredients.forEach(ingredient => {
       ingredientsData.forEach(singleIngredient => {
-        if(ingredient.id === singleIngredient.id) {
+        if (ingredient.id === singleIngredient.id) {
           totalCost += (singleIngredient.estimatedCostInCents * ingredient.quantity.amount)
         }
       })
@@ -43,7 +43,6 @@ class Recipe {
 
   getInstructions() {
     return this.instructions
-
   }
 
 
