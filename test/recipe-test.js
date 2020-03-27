@@ -1,16 +1,15 @@
 const chai = require('chai');
 const expect = chai.expect;
-
+const recipeData = require('../data/recipes');
 const Recipe = require('../src/Recipe');
-const recipeData = require('../data/single-recipe');
+
 
 describe('Recipe', function() {
-    let recipe;
-    let recipeInfo;
+    let recipe1;
+
 
     beforeEach(() => {
-        recipeInfo = recipeData.recipeData[0];
-        recipe = new Recipe(recipeInfo);
+      recipe1 = new Recipe(recipeData[0].id, recipeData[0].image, recipeData[0].ingredients, recipeData[0].instructions, recipeData[0].name, recipeData[0].tags);
     });
 
     it('should be a function', function() {
@@ -18,71 +17,41 @@ describe('Recipe', function() {
         });
 
     it('should be an instance of Recipe', function() {
-        expect(recipe).to.be.an.instanceof(Recipe);
+        expect(recipe1).to.be.an.instanceof(Recipe);
         });
-    
+
     it('should be able to show an id', function() {
-        
-        expect(recipe.id).to.eq(595736);
+        expect(recipe1.id).to.eq(595736);
     });
 
     it('should have an image', function() {
-
-        expect(recipe.image).to.eq("https://spoonacular.com/recipeImages/595736-556x370.jpg")
+        expect(recipe1.image).to.eq("https://spoonacular.com/recipeImages/595736-556x370.jpg")
     });
 
     it('should have ingredients', function() {
-        const ingredient = {
-            "id": 20081,
-            "quantity": {
-              "amount": 1.5,
-              "unit": "tsp"
-            }
-          }
-        expect(recipe.ingredients[0]).to.deep.eq(ingredient);
+        expect(recipe1.ingredients).to.deep.eq(recipeData[0].ingredients);
     });
 
     it('should have instructions', function() {
-        const instructions = {
-            "instruction": "In a large mixing bowl, whisk together the dry ingredients (flour, pudding mix, soda and salt). Set aside.In a large mixing bowl of a stand mixer, cream butter for 30 seconds. Gradually add granulated sugar and brown sugar and cream until light and fluffy.",
-            "number": 1
-          }
-        expect(recipe.instructions[0]).to.deep.eq(instructions);
+        expect(recipe1.instructions).to.deep.eq(recipeData[0].instructions);
     });
 
     it('should have a name', function() {
-        expect(recipe.name).to.eq("Loaded Chocolate Chip Pudding Cookie Cups")
+        expect(recipe1.name).to.eq("Loaded Chocolate Chip Pudding Cookie Cups")
     });
 
     it('should have some tags', function() {
-        expect(recipe.tags).to.deep.eq([
-            "antipasti",
-            "starter",
-            "snack",
-            "appetizer",
-            "antipasto",
-            "hor d'oeuvre"
-          ])
+        expect(recipe1.tags).to.deep.eq(recipeData[0].tags)
     });
 
     it('should calculate the cost of all ingredients', function() {
-        const ingredient = {
-            "id": 20081,
-            "quantity": {
-              "amount": 1.5,
-              "unit": "c"
-            }
-          }
-        
-        recipe.getCostOfIngredients();
-        expect(recipe.getCostOfIngredients()).to.equal(17776)
+        recipe1.getCostOfIngredients();
+        expect(recipe1.getCostOfIngredients()).to.equal(17776)
     });
 
-    it('should return ')
-    
-
-    // it('should be able to show instructions for a recipe', function() {
-
-    // })
+    it('should return instructions', function() {
+      recipe1.getInstructions();
+      expect(recipe1.instructions).to.deep.equal(recipeData[0].instructions)
+    });
 
 });
