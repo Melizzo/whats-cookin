@@ -45,7 +45,7 @@ describe('User', function() {
     expect(user1.pantry).to.deep.eq(userData[0].pantry)
   });
 
-  it('should be able to favorite a recipe', function() {
+  it('should be able to favorite & unfavorite a recipe', function() {
 
     expect(user1.favoriteRecipes.length).to.eq(0)
     user1.toggleFavoriteRecipe(recipe1);
@@ -56,12 +56,16 @@ describe('User', function() {
     expect(user1.favoriteRecipes.length).to.eq(1)
   });
 
-  it('should be able to add a recipe to recipes to cook', function() {
+  it('should be able to save & unsave a recipe to cook', function() {
 
-    user1.addToRecipesToCook(recipe1);
-    expect(user1.recipesToCook).to.deep.eq([recipe1]);
-    user1.addToRecipesToCook(recipe2);
-    expect(user1.recipesToCook).to.deep.eq([recipe1, recipe2]);
+    expect(user1.recipesToCook.length).to.eq(0)
+    user1.toggleRecipeToCook(recipe1);
+    expect(user1.recipesToCook.length).to.eq(1)
+    user1.toggleRecipeToCook(recipe2);
+    expect(user1.recipesToCook.length).to.eq(2)
+    user1.toggleRecipeToCook(recipe1);
+    
+    expect(user1.recipesToCook.length).to.eq(1)
   });
 
   it('should be able to filter favorite recipes by tag', function() {
@@ -73,11 +77,27 @@ describe('User', function() {
 
   it('should be able to filter the recipes to cook by tag', function() {
 
-    user1.addToRecipesToCook(recipe3);
-    user1.addToRecipesToCook(recipe4);
-    user1.addToRecipesToCook(recipe5);
-    user1.addToRecipesToCook(recipe6);
+    user1.toggleRecipeToCook(recipe3);
+    user1.toggleRecipeToCook(recipe4);
+    user1.toggleRecipeToCook(recipe5);
+    user1.toggleRecipeToCook(recipe6);
     expect(user1.filterRecipesToCook('side dish')).to.deep.eq([recipe4, recipe6]);
+  });
+
+  it('should be able to filter recipe to cook by name', function() {
+    user1.toggleRecipeToCook(recipe4);
+    user1.toggleRecipeToCook(recipe5);
+    user1.toggleRecipeToCook(recipe6);
+    expect(user1.filterRecipesToCookByName('Elvis Pancakes')).to.deep.eq([recipe4]);
+  });
+
+  it('should be able to filter recipe to cook by ingredient', function() {
+    user1.toggleRecipeToCook(recipe4);
+    user1.toggleRecipeToCook(recipe5);
+    user1.toggleRecipeToCook(recipe6);
+    // console.log(user1.recipesToCook)
+    expect(user1.filterRecipesToCookByIngredients('apple cider vinegar')).to.deep.eq([recipe5]);
+    // console.log('AFTER', user1.recipesToCook)
   });
 
 

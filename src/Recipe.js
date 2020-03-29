@@ -12,7 +12,8 @@ class Recipe {
     this.instructions = instructions;
     this.name = name;
     this.tags = tags;
-    this.isFavorited = false
+    this.isFavorited = false;
+    this.isSaved = false;
   }
 
 
