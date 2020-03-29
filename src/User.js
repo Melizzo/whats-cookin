@@ -19,7 +19,6 @@ class User {
     let matchedIndex = this.favoriteRecipes.findIndex(element => {
       return element.id === recipe.id
     })
-    console.log({matchedIndex})
     if (matchedIndex === -1) {
       this.favoriteRecipes.push(recipe)
     } else {
@@ -27,24 +26,62 @@ class User {
     }
   }
 
-  addToRecipesToCook(recipe) {
-    this.recipesToCook.push(recipe)
+  toggleRecipeToCook(recipe) {
+    recipe.isSaved = !recipe.isSaved
+    let matchedIndex = this.recipesToCook.findIndex(element => {
+      return element.id === recipe.id
+    })
+    if (matchedIndex === -1) {
+      this.recipesToCook.push(recipe)
+    } else {
+      this.recipesToCook.splice(matchedIndex, 1)
+    }
   }
 
   filterFavoriteRecipes(tag) {
     return this.favoriteRecipes.filter(recipe => recipe.tags.includes(tag))
   }
 
-
   filterRecipesToCook(tag) {
     return this.recipesToCook.filter(recipe => recipe.tags.includes(tag))
   }
 
-  searchSavedRecipes() {
-    // search any of the saved recipes by name or ingredient (these saved recipes are the recipes that have been added to favorite recipes???)
+  filterRecipesToCookByName(name) {
+    return this.recipesToCook.filter(recipe => recipe.name.includes(name))
   }
 
+  filterRecipesToCookByIngredients(ingredientName) {
+    const ingredientID = ingredientsData.filter(ingredient => ingredient.name === ingredientName)[0].id
+
+    const filteredRecipesByIngredient = this.recipesToCook.filter(recipe => {
+      const matchedIngredient = recipe.ingredients.find(currentIngredient => {
+        return currentIngredient.id === ingredientID
+      }) 
+
+      if (matchedIngredient) {
+        return recipe
+      }
+    });
+
+    return filteredRecipesByIngredient
+  };
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 if (typeof module !== 'undefined') {
   module.exports = User;
