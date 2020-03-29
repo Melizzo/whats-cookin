@@ -64,7 +64,7 @@ describe('User', function() {
     user1.toggleRecipeToCook(recipe2);
     expect(user1.recipesToCook.length).to.eq(2)
     user1.toggleRecipeToCook(recipe1);
-    
+
     expect(user1.recipesToCook.length).to.eq(1)
   });
 
@@ -91,13 +91,25 @@ describe('User', function() {
     expect(user1.filterRecipesToCookByName('Elvis Pancakes')).to.deep.eq([recipe4]);
   });
 
+  it('should be able to filter favorite recipes by name', function() {
+    user1.toggleFavoriteRecipe(recipe4);
+    user1.toggleFavoriteRecipe(recipe5);
+    user1.toggleFavoriteRecipe(recipe6);
+    expect(user1.filterFavoriteRecipesByName('Mock Udi’s Gluten Free Whole Grain Bread')).to.deep.eq([recipe5]);
+  });
+
   it('should be able to filter recipe to cook by ingredient', function() {
     user1.toggleRecipeToCook(recipe4);
     user1.toggleRecipeToCook(recipe5);
     user1.toggleRecipeToCook(recipe6);
-    // console.log(user1.recipesToCook)
     expect(user1.filterRecipesToCookByIngredients('apple cider vinegar')).to.deep.eq([recipe5]);
-    // console.log('AFTER', user1.recipesToCook)
+  });
+
+  it('should be able to filter favorite recipes by ingredient', function() {
+    user1.toggleFavoriteRecipe(recipe4);
+    user1.toggleFavoriteRecipe(recipe5);
+    user1.toggleFavoriteRecipe(recipe6);
+    expect(user1.filterFavoriteRecipesByIngredients('apple cider vinegar')).to.deep.eq([recipe5]);
   });
 
 
