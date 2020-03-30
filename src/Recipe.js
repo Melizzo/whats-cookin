@@ -29,6 +29,20 @@ class Recipe {
     return totalCost
   };
 
+  getInstructions() {
+    return this.instructions
+  }
+
+  getRecipeIdsAndAmounts() {
+    return this.ingredients.reduce((acc, ingredient) => {
+      let recipeIdsAndAmounts = {};
+      recipeIdsAndAmounts['id'] = ingredient.id;
+      recipeIdsAndAmounts['amount'] = ingredient.quantity.amount;
+      acc.push(recipeIdsAndAmounts);
+      return acc;
+    }, [])
+  }
+
   filterRecipeByTag(tagName) {
     // filter (.includes) out the recipe.tags array and return only the
     // selected tags
@@ -42,12 +56,7 @@ class Recipe {
   }
 
 
-  getInstructions() {
-    return this.instructions
-  }
-
-
-}
+};
 
 if (typeof module !== 'undefined') {
   module.exports = Recipe;
