@@ -26,3 +26,15 @@ nav {
   width: 7em;
   height: 4em;
 }
+
+
+
+/* Main Section */
+/* Header */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5em;
+}
