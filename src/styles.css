@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Comic Sans';
+  margin: 0;
+  padding: 0;
+  border: 1px solid red;
+}
+
+nav {
+  height: 8em;
+  width: auto;
+  background-color: green;
+}
+
+.logo {
+  height: 6em;
+  width: 6em;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  width: 7em;
+  height: 4em;
+}
