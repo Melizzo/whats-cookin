@@ -1,40 +1,51 @@
 * {
   box-sizing: border-box;
-  font-family: 'Comic Sans';
+  font-family: 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
   border: 1px solid red;
 }
-
-nav {
-  height: 8em;
-  width: auto;
-  background-color: green;
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
 }
-
-.logo {
-  height: 6em;
-  width: 6em;
-}
-
-nav {
+header {
+  background-color: #C4C4C4;
   display: flex;
   justify-content: space-between;
-}
-
-.search {
-  width: 7em;
-  height: 4em;
-}
-
-
-
-/* Main Section */
-/* Header */
-
-header {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  padding-right: 3em;
+}
+.logo {
+  height: 8em;
+  width: 8em;
+}
+.search {
+  border-radius: 3px;
+  padding-left: 4em;
+  width: 45em;
   height: 5em;
+}
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Aside */
+aside {
+  background-color: #587A8A;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  width: 15em;
+}
+
+
+/* Recipe-container */
+.recipe-container {
+  background-color: #F3F6F7;
+  flex-grow: 1;
+  padding: 1em;
 }
