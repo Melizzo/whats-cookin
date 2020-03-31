@@ -1,10 +1,3 @@
-const Recipe = require('./Recipe');
-const Pantry = require('./Pantry');
-const ingredientsData = require('../data/ingredients');
-const recipeData = require('../data/recipes');
-const userData = require('../data/users');
-
-
 class User {
   constructor(name, id, pantry) {
     this.id = id;
@@ -36,7 +29,7 @@ class User {
     return this.favoriteRecipes.filter(recipe => recipe.tags.includes(tag))
   }
 
-  filterFavoriteRecipesByIngredients(ingredientName) {
+  filterFavoriteRecipesByIngredients(ingredientsData, ingredientName) {
     const ingredientID = ingredientsData.filter(ingredient => ingredient.name === ingredientName)[0].id
 
     const filteredRecipesByIngredient = this.favoriteRecipes.filter(recipe => {
@@ -50,7 +43,7 @@ class User {
     });
 
     return filteredRecipesByIngredient
-  };
+  }
 
   toggleRecipeToCook(recipe) {
     recipe.isSaved = !recipe.isSaved
@@ -74,7 +67,7 @@ class User {
     return this.recipesToCook.filter(recipe => recipe.tags.includes(tag))
   }
 
-  filterRecipesToCookByIngredients(ingredientName) {
+  filterRecipesToCookByIngredients(ingredientsData, ingredientName) {
     const ingredientID = ingredientsData.filter(ingredient => ingredient.name === ingredientName)[0].id
 
     const filteredRecipesByIngredient = this.recipesToCook.filter(recipe => {
@@ -88,9 +81,7 @@ class User {
     });
 
     return filteredRecipesByIngredient
-  };
-
-
+  }
 
 
 }

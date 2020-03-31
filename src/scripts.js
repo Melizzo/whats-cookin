@@ -1,9 +1,12 @@
-console.log('Hello world');
+let user;
 
+const loadUser = () => {
+  let randomNumber = Math.floor((Math.random() * 49));
+  user = new User(usersData[randomNumber].name, usersData[randomNumber].id, usersData[randomNumber].pantry);
+  const welcomeMessage = document.querySelector('.welcome-message');
+  welcomeMessage.innerHTML = `Welcome ${user.name}!`;
+  console.log(user);
+  return user;
+}
 
-// filter by tags 
-// we go through the recipe object, filter out just the
-// of tags for the specific tags
-// DOM - go through the fitered list, and if the 
-// array of tags includes "snacks" display only
-// those snacks. 
+window.onload = loadUser()

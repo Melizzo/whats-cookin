@@ -1,7 +1,3 @@
-const Recipe = require('./Recipe');
-const User = require('./Pantry');
-const recipeData = require('../data/recipes');
-
 class Pantry {
   constructor(userPantry) {
     this.userPantry = userPantry;
@@ -55,7 +51,6 @@ class Pantry {
       return ingredient.amount > 0
     })
   }
-
 
   // method4() {
   // Remove the ingredients used for a given meal from my pantry,
