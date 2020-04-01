@@ -4,6 +4,7 @@ const userData = require('../data/users');
 const recipeData = require('../data/recipes');
 const User = require('../src/User');
 const Recipe = require('../src/Recipe');
+const ingredientsData = require('../data/ingredients');
 
 describe('User', function() {
 
@@ -102,14 +103,14 @@ describe('User', function() {
     user1.toggleRecipeToCook(recipe4);
     user1.toggleRecipeToCook(recipe5);
     user1.toggleRecipeToCook(recipe6);
-    expect(user1.filterRecipesToCookByIngredients('apple cider vinegar')).to.deep.eq([recipe5]);
+    expect(user1.filterRecipesToCookByIngredients(ingredientsData, 'apple cider vinegar')).to.deep.eq([recipe5]);
   });
 
   it('should be able to filter favorite recipes by ingredient', function() {
     user1.toggleFavoriteRecipe(recipe4);
     user1.toggleFavoriteRecipe(recipe5);
     user1.toggleFavoriteRecipe(recipe6);
-    expect(user1.filterFavoriteRecipesByIngredients('apple cider vinegar')).to.deep.eq([recipe5]);
+    expect(user1.filterFavoriteRecipesByIngredients(ingredientsData, 'apple cider vinegar')).to.deep.eq([recipe5]);
   });
 
 
