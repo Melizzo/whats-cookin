@@ -1,4 +1,4 @@
-let ingredientsData = [
+const ingredientsData = [
   {
     "id": 20081,
     "name": "wheat flour",
@@ -1235,5 +1235,5 @@ let ingredientsData = [
 ]
 
 if (typeof module !== 'undefined') {
+  module.exports = ingredientsData;
 }
-module.exports = ingredientsData;

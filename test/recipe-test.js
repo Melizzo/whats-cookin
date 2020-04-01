@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 const recipeData = require('../data/recipes');
 const Recipe = require('../src/Recipe');
+const ingredientsData = require('../data/ingredients');
 
 
 describe('Recipe', function() {
@@ -45,8 +46,8 @@ describe('Recipe', function() {
     });
 
     it('should calculate the cost of all ingredients', function() {
-        recipe1.getCostOfIngredients();
-        expect(recipe1.getCostOfIngredients()).to.eq(17776)
+        recipe1.getCostOfIngredients(ingredientsData);
+        expect(recipe1.getCostOfIngredients(ingredientsData)).to.eq(17776)
     });
 
     it('should return instructions', function() {
