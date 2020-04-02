@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>Whats Cookin</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
   <header>
     <img class="logo" src="assets/whats_cookin_logo.png" alt="what's cookin logo">
     <div>
       <button type="button" name="button">Show My Favorites</button>
       <button type="button" name="button">Show Recipes To Cook</button>
-      <input class="search" type="text" name="search" placeholder="Find a recipe" />
+      <input id="searchbar" class="search" type="text" name="search" placeholder="Find a recipe" />
     </div>
   </header>
   <main>
@@ -103,23 +101,10 @@
     </aside>
     <div>
       <section>
-
         <h1 class="welcome-message"></h1>
       </section>
       <section class="recipes-container">
-        <!-- <div class="recipe-card">
-        <section class="recipe-title-container">
-        <h4 class="recipe-title">Elvis Pancakes</h4>
       </section>
-      <section class="recipe-image-container">
-      <img class="recipe-image" src="https://spoonacular.com/recipeImages/595736-556x370.jpg" alt="recipe image" />
-    </section>
-    <section class="recipe-buttons">
-    <button class="recipe-button"><img src="assets/unfavorited.svg" alt="unfilled in heart"></button>
-    <button class="recipe-button"><img src="assets/not_added_to_cook.svg" alt="unfilled in silverware"></button>
-  </section>
-</div> -->
-</section>
     </div>
   </main>
   <script type="text/javascript" src="../data/users.js"></script>
@@ -130,5 +115,4 @@
   <script type="text/javascript" src="./Recipe.js"></script>
   <script type="text/javascript" src="./scripts.js"></script>
 </body>
-
 </html>
