@@ -19,6 +19,6 @@ Here's how you set this up!
 
 ## Contributors:
 
-[Michelle Kaplan] (https://github.com/MichelleKaplan7)
+[Michelle Kaplan](https://github.com/MichelleKaplan7)
 
 [Melissa VanKempen](https://github.com/Melizzo)
