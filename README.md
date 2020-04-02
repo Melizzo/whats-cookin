@@ -12,7 +12,7 @@ Here's how you set this up!
 
 ## Gif of working Website
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://media.giphy.com/media/RJazyjyRDa7MQZIHiS/giphy.gif)
 
 
 ## Inspiration
