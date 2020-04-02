@@ -8,14 +8,17 @@ Here's how you set this up!
 
 1. Clone the repo
 2. run npm init
-3. Whatever else needs to be done to view the site.
+3. cd into src
+4. open index.html
 
-## Gif of working Website
+## Website
 
 ![Alt Text](https://media.giphy.com/media/RJazyjyRDa7MQZIHiS/giphy.gif)
 
 
 ## Inspiration
+
+We were inspired by bon apetite and recipes.com.
 
 ## Contributors:
 
